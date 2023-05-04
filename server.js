@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
+// Created fxn in helpers folder to create ID for each note
+const uuid = require('./helpers/uuid');
 
 const PORT = process.env.PORT || 3001;
 
@@ -41,41 +43,37 @@ app.post('/api/notes', (req, res) => {
       note_id: uuid(),
     };
 
-    // Obtain existing reviews
+    // Obtain existing list of notes and add/push new note
     fs.readFile('./db/db.json', 'utf8', (err, data) => {
       if (err) {
         console.error(err);
       } else {
-        
         const parsedNotes = JSON.parse(data);
-
-        // Add a new review
         parsedNotes.push(newNote);
 
-        //! START HERE
-        // Write updated reviews back to the file
+        // Write new note to file
         fs.writeFile(
-          './db/reviews.json',
-          JSON.stringify(parsedReviews, null, 4),
+          './db/db.json',
+          JSON.stringify(parsedNotes, null, 4),
           (writeErr) =>
             writeErr
               ? console.error(writeErr)
-              : console.info('Successfully updated reviews!')
+              : console.info('Successfully updated notes!')
         );
       }
     });
 
     const response = {
       status: 'success',
-      body: newReview,
+      body: newNote,
     };
 
     console.log(response);
     res.status(201).json(response);
   } else {
-    res.status(500).json('Error in posting review');
+    res.status(500).json('Error in posting note');
   }
 });
 
 
-app.listen(PORT, () => console.log(`App listening on port ${PORT}`));
+app.listen(PORT, () => console.log(`App listening on port ${PORT} 🚀`));
