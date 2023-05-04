@@ -1,19 +1,20 @@
 // helper fxns and dependencies
-const app = require('express').Router();
+const notes = require('express').Router();
 const { readFromFile, readAndAppend } = require('../helpers/fsUtils');
 const uuid = require('../helpers/uuid');
 
 //* ----------- GET ----------- *//
 // GET Route for retrieving notes
-app.get('/', (req, res) => {
+notes.get('/', (req, res) => {
   console.info(`${req.method} request received for notes`);
-  readFromFile('./db/db.json').then((data) => res.json(JSON.parse(data)));
+  readFromFile('./db/notes.json').then((data) => res.json(JSON.parse(data)));
 });
 
 //* ----------- POST ----------- *//
 // POST Route for new note
-app.post('/notes', (req, res) => {
+notes.post('/', (req, res) => {
   console.info(`${req.method} request received to add a note`);
+  console.log(req.body);
 
   const { title, text } = req.body;
 
@@ -21,18 +22,15 @@ app.post('/notes', (req, res) => {
     const newNote = {
       title,
       text,
-      note_id: uuid()
+      note_id: uuid(),
     };
 
-    readAndAppend(newNote, './db/db.json');
-    // const response = {
-    //   status: 'success',
-    //   body: newNote,
-    // };
+    readAndAppend(newNote, './db/notes.json');
+
     res.json(`Note added successfully. 🚀`);
   } else {
     res.error('Error in adding note.');
   }
 });
 
-module.exports = app;
+module.exports = notes;
