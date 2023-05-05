@@ -1,17 +1,1 @@
-[
-    {
-        "title": "Test Title",
-        "text": "Test text",
-        "note_id": "789e"
-    },
-    {
-        "title": "Notes on Notes",
-        "text": "notey note note",
-        "note_id": "b20a"
-    },
-    {
-        "title": "Another Noooooote",
-        "text": "Writing lots of notes",
-        "note_id": "75e0"
-    }
-]
+[{"title":"Grocery Shopping","text":"Pick up dog food, eggs, milk, bread","id":"593e"},{"title":"Dentist","text":"Friday @ 2:30pm","id":"cc86"},{"title":"Cinco de Mayo","text":"Dinner with bestie @ 7pm","id":"5b41"},{"title":"Mother's Day","text":"Pick up gift and mail before Sunday.","id":"b403"},{"title":"Conference Call","text":"12pm Wednesday with Marketing Department","id":"51c6"}]

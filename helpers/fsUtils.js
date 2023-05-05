@@ -1,8 +1,10 @@
-const fs = require('fs');
+// Much of this was created within Module 11 class activities --> worked with tutor to better understand and simplify the functions/returns created here
+
+const {readFile, writeFile} = require('fs');
 const util = require('util');
 
 // Promise version of fs.readFile
-const readFromFile = util.promisify(fs.readFile);
+const readFromFile = util.promisify(readFile);
 /**
  *  Function to write data to the JSON file given a destination and some content
  *  @param {string} destination The file you want to write to.
@@ -10,7 +12,7 @@ const readFromFile = util.promisify(fs.readFile);
  *  @returns {void} Nothing
  */
 const writeToFile = (destination, content) =>
-  fs.writeFile(destination, JSON.stringify(content, null, 4), (err) =>
+  writeFile(destination, JSON.stringify(content, null, 4), (err) =>
     err ? console.error(err) : console.info(`\nData written to ${destination}`)
   );
 /**
@@ -20,7 +22,7 @@ const writeToFile = (destination, content) =>
  *  @returns {void} Nothing
  */
 const readAndAppend = (content, file) => {
-  fs.readFile(file, 'utf8', (err, data) => {
+  readFile(file, 'utf8', (err, data) => {
     if (err) {
       console.error(err);
     } else {
