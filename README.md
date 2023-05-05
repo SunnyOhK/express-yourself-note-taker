@@ -17,7 +17,7 @@ This application is designed for that busy, multi-tasking small business owner. 
 
 ## Installation
 
-No installation necessary! You can visit the Express Yourself Note Taker live web application at:  _________
+No installation necessary! You can visit the Express Yourself Note Taker live web application at: https://express-yourself-note-taker.herokuapp.com/
 
 For testing and viewing locally, this application requires the Express.js node module:
 - [Express.js](https://www.npmjs.com/package/express) - version 4.16.4
@@ -54,6 +54,6 @@ For questions, please contact me:
   &nbsp;&nbsp;&nbsp; [SunnyOhK](https://github.com/SunnyOhK)
 
 ### Project Link: 
-  &nbsp;&nbsp;&nbsp; https://github.com/SunnyOhK/express-yourself-note-taker
+  &nbsp;&nbsp;&nbsp; https://express-yourself-note-taker.herokuapp.com/
 ### Email: 
   &nbsp;&nbsp;&nbsp; 127900916+SunnyOhK@users.noreply.github.com
